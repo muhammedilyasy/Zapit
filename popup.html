@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zapit - Hide Elements</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f9fafb;
+      color: #374151;
+      padding: 20px;
+      min-width: 350px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      font-size: 24px;
+      color: #1e3a8a;
+      margin-bottom: 15px;
+    }
+    p {
+      text-align: center;
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 20px;
+    }
+    .button-container {
+      margin-bottom: 15px;
+    }
+    .button-container button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: 500;
+      color: white;
+      background-color: #3b82f6;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .button-container button:hover {
+      background-color: #2563eb;
+    }
+    .button-container button:active {
+      background-color: #1d4ed8;
+    }
+    .remember-zap {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .remember-zap label {
+      font-size: 14px;
+      color: #4b5563;
+    }
+    .remember-zap input[type="checkbox"] {
+      margin-right: 8px;
+      transform: scale(1.2);
+    }
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #6b7280;
+      margin-top: 20px;
+    }
+    .footer a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    .hidden {
+      display: none;
+    }
+
+    /* Inner Pages Styles */
+    .search-bar {
+      margin-bottom: 20px;
+    }
+    .search-bar input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+    }
+    .website-list, .zap-list {
+      list-style: none;
+      padding: 0;
+    }
+    .website-item, .zap-item {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .website-item:hover, .zap-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    .favicon {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      border-radius: 3px;
+    }
+    .website-name, .zap-name {
+      font-size: 16px;
+      color: #374151;
+      flex-grow: 1;
+    }
+    .zap-item {
+      justify-content: space-between;
+    }
+    .zap-item button {
+      background: #ef4444;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .zap-item button:hover {
+      background: #b91c1c;
+    }
+    .no-zaps {
+      text-align: center;
+      font-size: 16px;
+      color: #6b7280;
+      margin-top: 20px;
+    }
+
+    /* Back to Home Link Style */
+    .back-to-home {
+      display: block;
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #3b82f6;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .back-to-home:hover {
+      text-decoration: underline;
+    }
+    /* Ensure only one arrow */
+    .back-to-home::before {
+      content: "← ";
+      margin-right: 5px;
+    }
+
+    /* Import/Export Section Styles */
+    #importExportSection {
+      text-align: center;
+    }
+    #importExportSection h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    #importExportSection p {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 20px;
+    }
+    #importExportSection .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    #importExportSection .button-container button {
+      width: 48%;
+    }
+  </style>
+</head>
+<body>
+  <!-- Main Section -->
+  <div id="mainSection">
+    <h1>Zapit</h1>
+    <p>Click to hide unwanted elements on any website.</p>
+
+    <!-- Zapping Button -->
+    <div class="button-container">
+      <button id="toggleButton">Enable Zapping</button>
+    </div>
+
+    <!-- "Remember this Zap" Checkbox -->
+    <div class="remember-zap">
+      <label>
+        <input type="checkbox" id="rememberZap"> Remember this Zap
+      </label>
+    </div>
+
+    <!-- Buttons to Navigate to Options Page -->
+    <div class="button-container">
+      <button id="currentWebsiteZaps">Saved Zaps for Current Website</button>
+    </div>
+    <div class="button-container">
+      <button id="allZaps">All Saved Zaps</button>
+    </div>
+    <div class="button-container">
+      <button id="importExportPageButton">Import/Export Zaps</button>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <a href="https://ilyasy.com/feature-request" target="_blank">Request a Feature</a> | 
+      <a href="https://buymeacoffee.com/muhammedil0" target="_blank">Consider Donating via BMC</a>
+    </div>
+  </div>
+
+  <!-- Inner Pages Section -->
+  <div id="innerPagesSection" class="hidden">
+    <h1 id="pageTitle">Manage Your Zaps</h1>
+
+    <!-- Back to Home Link -->
+    <a id="homeLink" class="back-to-home">Back to Home</a>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search..." />
+    </div>
+
+    <!-- Website List -->
+    <ul id="websiteList" class="website-list"></ul>
+
+    <!-- Zap List -->
+    <ul id="zapList" class="zap-list"></ul>
+
+    <!-- No Zaps Message -->
+    <div id="noZapsMessage" class="no-zaps"></div>
+  </div>
+
+  <!-- Import/Export Page Section -->
+  <div id="importExportSection" class="hidden">
+    <h1>Import/Export Zaps</h1>
+
+    <!-- Back to Home Link -->
+    <a id="homeLinkImportExport" class="back-to-home">Back to Home</a>
+
+    <!-- Import/Export Buttons for All Zaps -->
+    <div class="button-container">
+      <button id="exportAllZaps">Export All Zaps</button>
+      <button id="importAllZaps">Import All Zaps</button>
+    </div>
+
+    <!-- Placeholder for Individual Website Zaps -->
+    <p style="font-size: 14px; color: #6b7280;">
+      Export and Import Individual Website Zaps Coming Soon 🎊
+    </p>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

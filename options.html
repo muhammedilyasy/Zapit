@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zapit - Manage Zaps</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f9fafb;
+      color: #374151;
+      padding: 20px;
+      min-width: 350px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      font-size: 28px;
+      color: #1e3a8a;
+      margin-bottom: 20px;
+    }
+    .home-button {
+      display: block;
+      margin-bottom: 20px;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .home-button:hover {
+      background: #2563eb;
+    }
+    .search-bar {
+      margin-bottom: 20px;
+    }
+    .search-bar input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+    }
+    .website-list {
+      list-style: none;
+      padding: 0;
+    }
+    .website-item {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .website-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    .favicon {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      border-radius: 3px;
+    }
+    .website-name {
+      font-size: 16px;
+      color: #374151;
+      flex-grow: 1;
+    }
+    .no-zaps {
+      text-align: center;
+      font-size: 16px;
+      color: #6b7280;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Manage Your Zaps</h1>
+
+  <!-- Back to Home Button -->
+  <button id="homeButton" class="home-button">🏠 Back to Home</button>
+
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search websites..." />
+  </div>
+
+  <!-- Website List -->
+  <ul id="websiteList" class="website-list"></ul>
+
+  <!-- No Zaps Message -->
+  <div id="noZapsMessage" class="no-zaps"></div>
+
+  <script src="options.js"></script>
+</body>
+</html>

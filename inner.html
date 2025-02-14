@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zapit - Zaps for Website</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f9fafb;
+      color: #374151;
+      padding: 20px;
+      min-width: 350px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      font-size: 28px;
+      color: #1e3a8a;
+      margin-bottom: 20px;
+    }
+    .home-button {
+      display: block;
+      margin-bottom: 20px;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .home-button:hover {
+      background: #2563eb;
+    }
+    .back-button {
+      display: block;
+      margin-bottom: 20px;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .back-button:hover {
+      background: #2563eb;
+    }
+    .search-bar {
+      margin-bottom: 20px;
+    }
+    .search-bar input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+    }
+    .zap-list {
+      list-style: none;
+      padding: 0;
+    }
+    .zap-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background: #f3f4f6;
+      margin-bottom: 5px;
+      border-radius: 6px;
+    }
+    .zap-item span {
+      font-size: 14px;
+      color: #4b5563;
+    }
+    .zap-item button {
+      background: #ef4444;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .zap-item button:hover {
+      background: #b91c1c;
+    }
+    .delete-all {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .delete-all button {
+      background: #ef4444;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .delete-all button:hover {
+      background: #b91c1c;
+    }
+    .no-zaps {
+      text-align: center;
+      font-size: 16px;
+      color: #6b7280;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="pageTitle">Zaps for Website</h1>
+
+  <!-- Back to Home Button -->
+  <button id="homeButton" class="home-button">🏠 Back to Home</button>
+
+  <!-- Back Button -->
+  <button id="backButton" class="back-button">← Back to All Websites</button>
+
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search zaps..." />
+  </div>
+
+  <!-- Zap List -->
+  <ul id="zapList" class="zap-list"></ul>
+
+  <!-- No Zaps Message -->
+  <div id="noZapsMessage" class="no-zaps"></div>
+
+  <script src="inner.js"></script>
+</body>
+</html>
